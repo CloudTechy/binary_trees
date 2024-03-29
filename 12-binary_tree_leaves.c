@@ -5,15 +5,16 @@
  * @tree: binary tree
  * Return: size_t int
  */
-leaves_t binary_tree_leaves(const binary_tree_t *tree)
+size_t binary_tree_leaves(const binary_tree_t *tree)
 {
-	leaves_t s = 0;
+	size_t s = 0;
 
 	if (tree)
 	{
-		s += 1;
+		s += (tree->left == NULL && tree->right == NULL) ? 1 : 0;
 		s += binary_tree_leaves(tree->left);
 		s += binary_tree_leaves(tree->right);
 	}
+	return (s);
 }
 
